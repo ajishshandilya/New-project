@@ -1,0 +1,57 @@
+<section class="section-block">
+  <div class="page-shell">
+    <div class="section-heading">
+      <span class="eyebrow">Products</span>
+      <h1>Automotive and industrial lubrication products built for high-demand conditions.</h1>
+      <p>
+        The collection below uses the supplied reference content, updated for Synthx and arranged
+        into a premium, easier-to-scan product catalogue.
+      </p>
+    </div>
+
+    <div class="products-grid">
+      <article class="panel product-card" *ngFor="let product of products">
+        <div
+          class="product-visual"
+          [ngClass]="[product.themeClass, product.imageSrc ? 'has-product-image' : '']"
+        >
+          <img
+            *ngIf="product.imageSrc"
+            class="product-image"
+            [src]="product.imageSrc"
+            [alt]="product.imageAlt || product.title"
+          />
+          <span>{{ product.visualTag }}</span>
+        </div>
+
+        <div class="product-body">
+          <h2>{{ product.title }}</h2>
+          <p class="product-subtitle" *ngIf="product.subtitle">{{ product.subtitle }}</p>
+
+          <div class="product-copy">
+            <p *ngFor="let paragraph of product.intro">{{ paragraph }}</p>
+          </div>
+
+          <div class="content-block" *ngIf="product.featureHeading && product.features?.length">
+            <h3>{{ product.featureHeading }}</h3>
+            <ul>
+              <li *ngFor="let feature of product.features">{{ feature }}</li>
+            </ul>
+          </div>
+
+          <div
+            class="content-block"
+            *ngIf="product.applicationsHeading && product.applications?.length"
+          >
+            <h3>{{ product.applicationsHeading }}</h3>
+            <ul>
+              <li *ngFor="let application of product.applications">{{ application }}</li>
+            </ul>
+          </div>
+
+          <p class="pack-size" *ngIf="product.packSize">Pack Size: {{ product.packSize }}</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

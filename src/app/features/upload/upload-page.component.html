@@ -1,0 +1,139 @@
+<section class="page-shell upload-shell">
+  <div class="page-head">
+    <div>
+      <h1>Optimize Your Legacy.</h1>
+      <p>
+        Upload your current resume, job description, and docx template to generate an ATS-tuned
+        version.
+      </p>
+    </div>
+  </div>
+
+  <section class="progress-panel card-surface">
+    <div class="step-header">
+      <div
+        class="step-pill"
+        *ngFor="let step of steps; let index = index"
+        [class.is-active]="state.progress().activeStep === index + 1"
+        [class.is-complete]="state.progress().activeStep > index + 1 || state.progress().complete"
+      >
+        <span>{{ index + 1 }}</span>
+        <strong>{{ step }}</strong>
+      </div>
+    </div>
+
+    <div class="progress-track">
+      <span class="progress-fill" [style.width.%]="state.progress().percent"></span>
+    </div>
+
+    <p class="progress-copy">{{ state.progress().message }}</p>
+  </section>
+
+  <div class="upload-grid">
+    <aside class="protocol card-surface">
+      <span class="protocol-label">Protocol</span>
+      <ul>
+        <li>Upload your current resume as PDF or Docx.</li>
+        <li>Paste the job description or upload it as PDF or Docx.</li>
+        <li>Provide a docx resume template for the final layout.</li>
+        <li>Click Analyze &amp; Optimize to run the tailoring workflow.</li>
+      </ul>
+
+      <div class="secure-note">Encrypted and private prototype flow.</div>
+    </aside>
+
+    <div class="cards-grid">
+      <article class="upload-card card-surface">
+        <div>
+          <span class="card-icon">1</span>
+          <h2>Current Resume</h2>
+          <p>PDF or Docx</p>
+        </div>
+
+        <button class="button secondary" type="button" (click)="resumeInput.click()">
+          Select File
+        </button>
+        <input
+          #resumeInput
+          type="file"
+          accept=".pdf,.doc,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+          (change)="onFileSelected($event, 'resume')"
+          hidden
+        />
+
+        <div class="file-chip" *ngIf="state.uploadAssets().resumeFile as file">
+          <span>{{ file.name }}</span>
+          <button type="button" (click)="removeFile('resume')">Remove</button>
+        </div>
+      </article>
+
+      <article class="upload-card card-surface">
+        <div>
+          <span class="card-icon">2</span>
+          <h2>Job Description</h2>
+          <p>Paste the text or upload PDF / Docx</p>
+        </div>
+
+        <textarea
+          rows="8"
+          placeholder="Paste the target job description here..."
+          [ngModel]="state.uploadAssets().jobDescriptionText"
+          (ngModelChange)="updateJobDescriptionText($event)"
+          [disabled]="!!state.uploadAssets().jobDescriptionFile"
+        ></textarea>
+
+        <button class="button secondary" type="button" (click)="jdInput.click()">
+          Upload Docx / PDF
+        </button>
+        <input
+          #jdInput
+          type="file"
+          accept=".pdf,.doc,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+          (change)="onFileSelected($event, 'jobDescription')"
+          hidden
+        />
+
+        <div class="file-chip" *ngIf="state.uploadAssets().jobDescriptionFile as file">
+          <span>{{ file.name }}</span>
+          <button type="button" (click)="removeFile('jobDescription')">Remove</button>
+        </div>
+      </article>
+
+      <article class="upload-card template-card card-surface">
+        <div>
+          <span class="card-icon">3</span>
+          <h2>Resume Template</h2>
+          <p>Docx only</p>
+        </div>
+
+        <button class="button secondary" type="button" (click)="templateInput.click()">
+          Upload Template
+        </button>
+        <input
+          #templateInput
+          type="file"
+          accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+          (change)="onFileSelected($event, 'template')"
+          hidden
+        />
+
+        <div class="file-chip" *ngIf="state.uploadAssets().templateFile as file">
+          <span>{{ file.name }}</span>
+          <button type="button" (click)="removeFile('template')">Remove</button>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div class="actions-panel">
+    <button
+      class="button primary"
+      type="button"
+      [disabled]="!state.canAnalyze() || state.progress().running"
+      (click)="analyze()"
+    >
+      Analyze &amp; Optimize
+    </button>
+    <p>Estimated processing time: around 14 seconds in the final backend-connected version.</p>
+  </div>
+</section>

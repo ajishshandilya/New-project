@@ -1,0 +1,143 @@
+<section class="hero section-block">
+  <div class="page-shell hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow fade-up">Premium Lubricant Engineering</span>
+      <h1 class="fade-up delay-1">
+        Precision-built oils and fluids for engines that work harder, longer, and cleaner.
+      </h1>
+      <p class="fade-up delay-2">
+        Synthx Lubricants delivers a bold, premium product range for passenger vehicles, bikes,
+        fleets, workshops, and industrial systems. The focus is simple: high-temperature
+        resilience, dependable wear protection, and confident performance in real operating
+        conditions.
+      </p>
+
+      <div class="hero-actions fade-up delay-3">
+        <a class="button primary" routerLink="/products">Explore Products</a>
+        <a class="button secondary" routerLink="/contact-us">Contact Synthx</a>
+      </div>
+
+      <div class="trust-row fade-up delay-3">
+        <span class="tag">Automotive Grade</span>
+        <span class="tag">Industrial Ready</span>
+        <span class="tag">Performance Focused</span>
+      </div>
+    </div>
+
+    <div class="hero-visual fade-up delay-2">
+      <div class="orb orb-blue"></div>
+      <div class="orb orb-gold"></div>
+
+      <article class="hero-panel control-panel">
+        <p class="panel-label">Operating Window</p>
+        <h2>Protection that holds under load and heat.</h2>
+        <div class="metric-grid">
+          <div>
+            <strong>9+</strong>
+            <span>Lubrication categories</span>
+          </div>
+          <div>
+            <strong>360°</strong>
+            <span>Engine-to-industry coverage</span>
+          </div>
+          <div>
+            <strong>High</strong>
+            <span>Thermal and oxidation stability</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="hero-panel floating-card top-card">
+        <span class="mini-label">Featured Blend</span>
+        <p>4T 20W-40 API SN JASO MA-2</p>
+      </article>
+
+      <article class="hero-panel floating-card bottom-card">
+        <span class="mini-label">Heavy Duty</span>
+        <p>Gear, hydraulic, chain, and transmission systems</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="page-shell">
+    <div class="section-heading">
+      <span class="eyebrow">Why Synthx</span>
+      <h2>Modern lubrication solutions with premium intent and practical depth.</h2>
+      <p>
+        The range is shaped for workshops, commercial operators, and industrial teams that need
+        consistency more than claims.
+      </p>
+    </div>
+
+    <div class="grid-3 highlight-grid">
+      <article class="panel highlight-card" *ngFor="let item of highlights">
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.copy }}</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="page-shell operating-band panel">
+    <div class="band-copy">
+      <span class="eyebrow">Applications</span>
+      <h2>Built to support everything from personal mobility to industrial uptime.</h2>
+      <p>
+        From car engine oils and steering fluids to grease, hydraulic oils, and ATF, Synthx is
+        positioned for mixed fleets, workshops, and process-heavy operations.
+      </p>
+    </div>
+
+    <div class="sector-grid">
+      <div class="sector-card">
+        <strong>Automotive</strong>
+        <span>Passenger vehicles, bikes, CNG systems, and service workshops.</span>
+      </div>
+      <div class="sector-card">
+        <strong>Commercial</strong>
+        <span>Trucks, load-focused transmissions, and mixed operating environments.</span>
+      </div>
+      <div class="sector-card">
+        <strong>Industrial</strong>
+        <span>Chains, compressors, presses, servo systems, and heavy machinery.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="page-shell">
+    <div class="section-heading">
+      <span class="eyebrow">Product Spotlight</span>
+      <h2>Core product lines shaped for real-world service conditions.</h2>
+      <p>
+        Explore the flagship segments that anchor the Synthx product portfolio.
+      </p>
+    </div>
+
+    <div class="grid-2 featured-grid">
+      <article class="panel featured-card" *ngFor="let product of featuredProducts">
+        <span class="product-kicker">{{ product.category }}</span>
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.copy }}</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="page-shell cta-band panel">
+    <div>
+      <span class="eyebrow">Ready To Connect</span>
+      <h2>Need product guidance, dealership support, or a direct business conversation?</h2>
+    </div>
+
+    <div class="cta-actions">
+      <a class="button primary" routerLink="/contact-us">Get In Touch</a>
+      <a class="button secondary" routerLink="/about-us">Learn About Synthx</a>
+    </div>
+  </div>
+</section>

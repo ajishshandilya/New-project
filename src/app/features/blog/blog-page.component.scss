@@ -1,0 +1,17 @@
+.coming-card {
+  display: grid;
+  gap: 1.1rem;
+  max-width: 46rem;
+  padding: 2.4rem;
+  background:
+    radial-gradient(circle at top right, rgba(255, 143, 63, 0.18), transparent 24%),
+    linear-gradient(180deg, rgba(13, 26, 41, 0.94), rgba(8, 18, 29, 0.92));
+}
+
+.coming-card h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+.coming-card p {
+  color: var(--text-muted);
+}

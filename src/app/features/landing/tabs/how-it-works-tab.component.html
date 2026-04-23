@@ -1,0 +1,15 @@
+<section class="tab-panel">
+  <div class="panel-header">
+    <h2>How It Works</h2>
+    <p>The blueprint for turning one resume into a role-specific application asset.</p>
+  </div>
+
+  <div class="steps-grid">
+    <article class="step-card" *ngFor="let step of steps">
+      <span class="step-icon"></span>
+      <h3>{{ step.title }}</h3>
+      <p>{{ step.detail }}</p>
+      <strong>{{ step.count }}</strong>
+    </article>
+  </div>
+</section>

@@ -1,0 +1,62 @@
+<section class="page-shell results-shell" *ngIf="state.result() as result">
+  <div class="preview-column">
+    <div class="preview-toolbar">
+      <div class="mode-pills">
+        <span>A4 Layout</span>
+        <span>Editorial Style</span>
+      </div>
+
+      <button class="button secondary" type="button" (click)="isFullscreen = true">
+        View Fullscreen
+      </button>
+    </div>
+
+    <app-resume-preview [result]="result"></app-resume-preview>
+  </div>
+
+  <aside class="sidebar">
+    <section class="score-panel">
+      <p class="label">ATS Optimization Score</p>
+      <p class="level">{{ result.scoreLabel }}</p>
+      <div class="score-value">
+        <strong>{{ result.score }}</strong>
+        <span>/100</span>
+      </div>
+
+      <div class="score-meter">
+        <span [style.width.%]="result.score"></span>
+      </div>
+    </section>
+
+    <section class="insight-grid">
+      <article class="insight-card" *ngFor="let card of result.insights">
+        <h3>{{ card.label }}</h3>
+        <strong>{{ card.value }}</strong>
+        <p>{{ card.detail }}</p>
+      </article>
+    </section>
+
+    <section class="export-panel">
+      <h2>Finalize &amp; Export</h2>
+      <button class="button primary" type="button" (click)="download('pdf')">
+        Download as PDF
+      </button>
+      <button class="button secondary export-secondary" type="button" (click)="download('docx')">
+        Download as Docx
+      </button>
+      <p class="export-note">Both export actions route to the success screen after download.</p>
+    </section>
+
+    <section class="tip-panel">
+      <p class="label">Pro Tip</p>
+      <p>{{ result.proTip }}</p>
+    </section>
+  </aside>
+</section>
+
+<div class="fullscreen-overlay" *ngIf="isFullscreen" (click)="isFullscreen = false">
+  <div class="fullscreen-body" (click)="$event.stopPropagation()">
+    <button class="close-button" type="button" (click)="isFullscreen = false">Close</button>
+    <app-resume-preview [result]="state.result()" [fullscreen]="true"></app-resume-preview>
+  </div>
+</div>

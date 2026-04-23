@@ -1,0 +1,144 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(18px);
+  background: rgba(6, 14, 24, 0.72);
+  border-bottom: 1px solid rgba(137, 182, 255, 0.16);
+}
+
+.header-shell {
+  min-height: 5.5rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.brand-mark img {
+  width: 3.25rem;
+  height: 3.25rem;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 24px rgba(0, 160, 255, 0.24));
+}
+
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+}
+
+.brand-wordmark {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #f5fbff;
+}
+
+.brand-subtitle {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.primary-nav {
+  justify-self: end;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.35rem;
+}
+
+.primary-nav a {
+  padding: 0.8rem 1rem;
+  border-radius: 999px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.primary-nav a:hover,
+.primary-nav a.is-active {
+  color: #ffffff;
+  background: linear-gradient(135deg, rgba(14, 127, 250, 0.22), rgba(255, 128, 53, 0.2));
+  transform: translateY(-1px);
+}
+
+.menu-toggle {
+  display: none;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid rgba(137, 182, 255, 0.16);
+  border-radius: 1rem;
+  background: rgba(12, 29, 47, 0.92);
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 1.1rem;
+  height: 2px;
+  border-radius: 999px;
+  background: #e9f3ff;
+}
+
+.menu-toggle span + span {
+  margin-top: 0.24rem;
+}
+
+@media (max-width: 960px) {
+  .header-shell {
+    grid-template-columns: auto auto;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+    justify-self: end;
+  }
+
+  .primary-nav {
+    grid-column: 1 / -1;
+    display: none;
+    justify-self: stretch;
+    padding: 0 0 1rem;
+    border-top: 1px solid rgba(137, 182, 255, 0.14);
+  }
+
+  .primary-nav.is-open {
+    display: grid;
+    gap: 0.2rem;
+    margin-top: 0.4rem;
+  }
+
+  .primary-nav a {
+    text-align: left;
+    border-radius: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .brand-mark img {
+    width: 2.8rem;
+    height: 2.8rem;
+  }
+
+  .brand-wordmark {
+    font-size: 1.05rem;
+  }
+}

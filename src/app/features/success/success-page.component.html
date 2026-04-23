@@ -1,0 +1,51 @@
+<section class="page-shell success-shell" *ngIf="state.result() as result">
+  <div class="success-copy">
+    <div class="success-icon">✓</div>
+    <h1>Precision achieved.</h1>
+    <p>Your resume has been downloaded and the optimized version is ready to share.</p>
+
+    <div class="action-row">
+      <button class="button primary" type="button" (click)="startNewOptimization()">
+        Start a new optimization
+      </button>
+      <button class="button secondary" type="button" (click)="showShareOptions = !showShareOptions">
+        Share with a friend
+      </button>
+    </div>
+
+    <div class="share-grid" *ngIf="showShareOptions">
+      <button type="button" (click)="share('facebook')">Facebook</button>
+      <button type="button" (click)="share('twitter')">X</button>
+      <button type="button" (click)="share('whatsapp')">WhatsApp</button>
+      <button type="button" (click)="share('instagram')">Instagram</button>
+      <button type="button" (click)="share('linkedin')">LinkedIn</button>
+    </div>
+    <p class="share-status" *ngIf="shareStatus">{{ shareStatus }}</p>
+  </div>
+
+  <div class="status-grid">
+    <article class="wide-card next-steps">
+      <span class="label">Next Steps</span>
+      <h2>The interview prep phase starts here.</h2>
+      <p>Use the refreshed resume as your anchor for recruiter screens, tailored cover letters, and outreach messages.</p>
+    </article>
+
+    <article class="saved-card">
+      <div class="saved-preview"></div>
+      <p class="label">Saved Version</p>
+      <strong>{{ result.fileLabel }}.{{ state.lastDownload() ?? 'pdf' }}</strong>
+    </article>
+
+    <article class="score-card">
+      <p class="label">ATS Score</p>
+      <strong>{{ result.score }}/100</strong>
+      <p>Top-tier optimization benchmark for this role profile.</p>
+    </article>
+
+    <article class="privacy-card">
+      <p class="label">Privacy</p>
+      <strong>Data Privacy Locked</strong>
+      <p>Your prototype workflow keeps the processing state inside the browser session.</p>
+    </article>
+  </div>
+</section>
