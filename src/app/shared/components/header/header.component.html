@@ -1,24 +1,26 @@
 <header class="site-header">
   <div class="page-shell header-shell">
-    <a class="brand-mark" routerLink="/" (click)="closeMenu()" aria-label="Synthx home">
-      <img src="assets/images/synthx-logo.png" alt="Synthx Lubricants logo" />
-      <span class="brand-copy">
-        <span class="brand-wordmark">Synthx</span>
-        <span class="brand-subtitle">Lubricants</span>
-      </span>
-    </a>
+    <div class="header-bar">
+      <a class="brand-mark" routerLink="/" (click)="closeMenu()" aria-label="Synthx home">
+        <img src="assets/images/synthx-logo.png" alt="Synthx Lubricants logo" />
+        <span class="brand-copy">
+          <span class="brand-wordmark">Synthx</span>
+          <span class="brand-subtitle">Lubricants</span>
+        </span>
+      </a>
 
-    <button
-      class="menu-toggle"
-      type="button"
-      (click)="toggleMenu()"
-      [attr.aria-expanded]="isMenuOpen"
-      aria-label="Toggle navigation"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+      <button
+        class="menu-toggle"
+        type="button"
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="isMenuOpen"
+        aria-label="Toggle navigation"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
 
     <nav class="primary-nav" [class.is-open]="isMenuOpen" aria-label="Primary navigation">
       <a

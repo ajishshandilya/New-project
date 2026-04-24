@@ -59,16 +59,20 @@
 }
 
 .product-visual.has-product-image {
+  min-height: 0;
+  height: clamp(16rem, 24vw, 22rem);
   align-items: center;
   justify-content: center;
-  padding: 0rem 0rem 0rem 0rem;
+  padding: 0;
+  overflow: hidden;
 }
 
 .product-image {
   position: relative;
   z-index: 1;
-  width: auto;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.35));
 }
 
@@ -170,5 +174,9 @@
 @media (max-width: 960px) {
   .products-grid {
     grid-template-columns: 1fr;
+  }
+
+  .product-visual.has-product-image {
+    height: clamp(15rem, 52vw, 20rem);
   }
 }
