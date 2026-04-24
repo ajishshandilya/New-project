@@ -8,16 +8,15 @@
 }
 
 .header-shell {
+  min-height: 5.5rem;
   display: grid;
-  gap: 0;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .header-bar {
-  min-height: 5.5rem;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 1.5rem;
+  display: contents;
 }
 
 .brand-mark {
@@ -139,8 +138,18 @@
 }
 
 @media (max-width: 960px) {
+  .header-shell {
+    display: block;
+    min-height: 0;
+  }
+
   .header-bar {
-    grid-template-columns: auto auto;
+    min-height: 5.5rem;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
   }
 
   .menu-toggle {
@@ -150,7 +159,7 @@
 
   .primary-nav {
     display: none;
-    justify-self: stretch;
+    width: 100%;
     padding: 0.6rem 0 1rem;
     margin-top: 0;
     border-top: 1px solid rgba(137, 182, 255, 0.14);
